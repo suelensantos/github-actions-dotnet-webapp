@@ -27,7 +27,7 @@ jobs:
       - name: Restore dependencies
         run: |
           echo "Restaurando dependências..."
-          dotnet restore
+          dotnet restore **/*.csproj
 
       # Script personalizado: compila o projeto
       - name: Build
