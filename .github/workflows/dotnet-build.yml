@@ -5,8 +5,9 @@ name: github-actions-dotnet-webapp
 on:
   push:
     branches: [ "main" ]
-  schedule:
-    - cron: '0 * * * *'  # Executa a cada hora
+  # O agendamento abaixo foi comentado para evitar possível cobrança após o limite de uso gratuito.
+  # schedule:
+  #   - cron: '0 * * * *'  # Executa a cada hora
 
 jobs:
   build:
