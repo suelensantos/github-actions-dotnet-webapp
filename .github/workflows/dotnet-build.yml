@@ -1,0 +1,36 @@
+# This workflow will build a .NET project for github4women course
+
+name: github-actions-dotnet-webapp
+
+on:
+  push:
+    branches: [ "main" ]
+  schedule:
+    - cron: '0 * * * *'  # Executa a cada hora
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Action pré-existente: faz checkout do repositório
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Action pré-existente: configura o ambiente .NET
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      # Script personalizado: restaura dependências
+      - name: Restore dependencies
+        run: |
+          echo "Restaurando dependências..."
+          dotnet restore
+
+      # Script personalizado: compila o projeto
+      - name: Build
+        run: |
+          echo "Compilando projeto..."
+          dotnet build --no-restore
