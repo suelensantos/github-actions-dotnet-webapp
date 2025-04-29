@@ -33,4 +33,4 @@ jobs:
       - name: Build
         run: |
           echo "Compilando projeto..."
-          dotnet build --no-restore
+          dotnet build **/*.csproj --no-restore
